@@ -1,4 +1,4 @@
-package org.rollcall.gen
+package org.rollcall.alg
 
 internal data class Node<T>(
     val data: List<T>,

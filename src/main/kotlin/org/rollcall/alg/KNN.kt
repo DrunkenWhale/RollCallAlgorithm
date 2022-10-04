@@ -1,5 +1,6 @@
-package org.rollcall.gen
+package org.rollcall.alg
 
+import org.rollcall.alg.Node
 import kotlin.math.pow
 
 

@@ -1,5 +1,8 @@
 package org.rollcall.input
 
-interface Input {
+private typealias Label = Int
+private typealias Lesson = List<Label>
 
+interface Input {
+    fun read(): Pair<List<Lesson>, List<Double>>
 }

@@ -3,9 +3,11 @@ package org.rollcall.alg
 import kotlin.math.pow
 
 
-class KNN(private val neighborNumber: Int = 3) {
+internal typealias Data = Node<Double>
 
-    private val nodes = mutableListOf<Node<Double>>()
+class KNN(private val neighborNumber: Int = 5) {
+
+    private val nodes = mutableListOf<Data>()
 
     fun fit(dataList: List<List<Double>>, labelList: List<Int>) {
         assert(dataList.size == labelList.size)

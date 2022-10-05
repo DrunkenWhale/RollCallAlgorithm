@@ -7,16 +7,18 @@ import (
 	"strconv"
 )
 
+var dir = "../../../data"
+
 func main() {
-	if _, err := os.ReadDir("data"); err != nil {
+	if _, err := os.ReadDir(dir); err != nil {
 		// dir unexist
-		err = os.Mkdir("data", 0666)
+		err = os.Mkdir(dir, 0666)
 		if err != nil {
 			panic(err)
 		}
 	}
 	for i := 1; i <= 5; i++ {
-		generateDataAndSave("data" + string(os.PathSeparator) + "lesson" + strconv.Itoa(i) + ".csv")
+		generateDataAndSave(dir + string(os.PathSeparator) + "lesson" + strconv.Itoa(i) + ".csv")
 	}
 }
 

@@ -3,12 +3,20 @@ package main
 import (
 	"gen/gen"
 	"gen/save"
+	"os"
 	"strconv"
 )
 
 func main() {
+	if _, err := os.ReadDir("data"); err != nil {
+		// dir unexist
+		err = os.Mkdir("data", 0666)
+		if err != nil {
+			panic(err)
+		}
+	}
 	for i := 1; i <= 5; i++ {
-		generateDataAndSave("lesson" + strconv.Itoa(i) + ".csv")
+		generateDataAndSave("data" + string(os.PathSeparator) + "lesson" + strconv.Itoa(i) + ".csv")
 	}
 }
 

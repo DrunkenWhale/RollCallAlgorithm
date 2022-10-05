@@ -1,6 +1,5 @@
 package org.rollcall.alg
 
-import org.rollcall.alg.Node
 import kotlin.math.pow
 
 
@@ -32,10 +31,10 @@ class KNN(private val neighborNumber: Int = 3) {
 
         private fun euclideanDistance(node1: List<Double>, node2: List<Double>): Double {
             return node1.zip(node2)
-                .map { (it.first - it.second).pow(2) }
-                .sum()
+                .sumOf { (it.first - it.second).pow(2) }
                 .pow(0.5)
         }
+
     }
 }
 

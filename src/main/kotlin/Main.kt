@@ -30,4 +30,5 @@ fun main(args: Array<String>) {
 
     val e = validRollCallNumber.toDouble() / rollCallNumber
 
+    output.output(e)
 }

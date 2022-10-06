@@ -5,7 +5,7 @@ import org.rollcall.output.Output
 
 fun indexesToMultiShot(list:List<Int>,len:Int): MutableList<Int> {
     val res = mutableListOf<Int>()
-    for (i in 0..len){
+    for (i in 0 until len){
         if (i in list){
             res.add(1)
         }else{

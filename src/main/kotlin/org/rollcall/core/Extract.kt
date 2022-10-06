@@ -15,6 +15,7 @@ fun extractSample(input: Input, output: Output) {
         }
         .subList(0, 10)
 
+
     //TODO (implement your algorithm)
 
     output.write(data)

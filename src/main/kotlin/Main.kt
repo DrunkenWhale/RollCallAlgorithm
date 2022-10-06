@@ -4,14 +4,17 @@ import org.rollcall.output.ConsoleOutput
 import java.nio.file.Files
 import java.nio.file.Path
 
+const val rollCallNumber = 7
+
 fun main(args: Array<String>) {
+
     val pathString = "data"
     val output = ConsoleOutput()
     val dsvInputList = Files.list(Path.of(pathString)).map { path ->
         DsvInput(path)
     }.toList()!!
 
-    dsvInputList.forEach { extractSample(it, output) }
+    dsvInputList.forEach { extractSample(it, output, rollCallNumber) }
 
     val rollCallScheme = output.read()
 
@@ -23,10 +26,11 @@ fun main(args: Array<String>) {
 
     val validRollCallNumber = rollCallScheme.flatten().flatten()
         .zip(inputDataList.flatten().flatten())
-        .map { it.first == it.second }
-        .count { it }
+        .filter { it.first != 0 && it.first == it.second }
+        .size
 
-    val rollCallNumber = rollCallScheme.flatten().flatten().count()
+
+    val rollCallNumber = rollCallScheme.flatten().flatten().sum()
 
     val e = validRollCallNumber.toDouble() / rollCallNumber
 

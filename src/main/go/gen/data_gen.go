@@ -44,7 +44,7 @@ func (gen *DataGenerator) Generator() ([][]int, []float64) {
 		}
 	}
 	for i := 0; i < len(absenceArray); i++ {
-		absenceArray[i] = _GPA(3-absenceArray[i]*0.1) + 1
+		absenceArray[i] = _GPA(3-absenceArray[i]*0.3) + 3
 	}
 	return arr, absenceArray
 }
@@ -58,7 +58,6 @@ var DefaultDataGenerator = &DataGenerator{
 }
 
 func _GPA(upperBound float64) float64 {
-	// 生成 0~上限 的随机绩点
 	return rand.Float64() * upperBound
 }
 

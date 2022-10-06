@@ -20,7 +20,7 @@ fun extractSample(input: Input, output: Output, rollCallNumber: Int) {
 
     val rollList = mutableListOf<MutableList<Int>>()
 
-    var currentList = (0..credit.size)
+    var currentIndexList = credit.indices
         .toList()
         .zip(credit)
         .sortedBy { it.second }
@@ -30,14 +30,23 @@ fun extractSample(input: Input, output: Output, rollCallNumber: Int) {
         }
 
 
+
     for (lesson in data) {
-        rollList.add(indexesToMultiShot(currentList, credit.size))
-        val captureList = (1..credit.size).intersect(currentList.toSet()).toList()
-        val restNumber = rollCallNumber - captureList.size
+
+        val absenceIndexList= mutableListOf<Int>()
+
+        for (i in lesson.indices){
+            if (lesson[i]==1)
+                absenceIndexList.add(i)
+        }
+
+        rollList.add(indexesToMultiShot(currentIndexList, credit.size))
+        val capturedList = absenceIndexList.indices.intersect(currentIndexList.toSet()).toList()
+        val restNumber = rollCallNumber - capturedList.size
 
         val restRollList = (1..credit.size)
             .toList()
-            .subtract(currentList.toSet())
+            .subtract(currentIndexList.toSet())
             .zip(credit)
             .sortedBy {
                 it.second
@@ -46,7 +55,7 @@ fun extractSample(input: Input, output: Output, rollCallNumber: Int) {
             .map {
                 it.first
             }
-        currentList = (captureList + restRollList).toList()
+        currentIndexList = (capturedList + restRollList).toList()
 
     }
 

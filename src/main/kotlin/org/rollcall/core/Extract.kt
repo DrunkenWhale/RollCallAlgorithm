@@ -9,5 +9,5 @@ fun extractSample(input: Input, output: Output) {
 
     //TODO (implement your algorithm)
 
-    output.write(data, 1.0)
+    output.write(data)
 }

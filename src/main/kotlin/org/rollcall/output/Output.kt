@@ -7,5 +7,5 @@ interface Output {
     /**
      * @param data roll call method
      * */
-    fun write(data: List<List<Int>>, E: Double)
+    fun write(data: List<List<Int>>)
 }

@@ -13,7 +13,7 @@ type DataGenerator struct {
 	randomAbsenceStudentNumber int
 }
 
-func (gen *DataGenerator) Generator() [][]int {
+func (gen *DataGenerator) Generator() ([][]int, []float64) {
 
 	arr := make([][]int, gen.lessonNumber)
 	for i := 0; i < len(arr); i++ {
@@ -36,7 +36,17 @@ func (gen *DataGenerator) Generator() [][]int {
 			arr[i][rand.Int()%gen.studentNumber] = 1
 		}
 	}
-	return arr
+
+	absenceArray := make([]float64, len(arr[0]))
+	for i := 0; i < len(arr[0]); i++ {
+		for j := 0; j < len(arr); j++ {
+			absenceArray[i] += float64(arr[j][i])
+		}
+	}
+	for i := 0; i < len(absenceArray); i++ {
+		absenceArray[i] = _GPA(3-absenceArray[i]*0.1) + 1
+	}
+	return arr, absenceArray
 }
 
 var DefaultDataGenerator = &DataGenerator{
@@ -45,6 +55,10 @@ var DefaultDataGenerator = &DataGenerator{
 	absenceStudentNumber:       7,
 	absenceLessonRate:          0.8,
 	randomAbsenceStudentNumber: 5,
+}
+
+func _GPA(upperBound float64) float64 {
+	return rand.Float64() * upperBound
 }
 
 func init() {

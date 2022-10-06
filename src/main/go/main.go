@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gen/gen"
 	"gen/save"
 	"os"
@@ -23,9 +24,13 @@ func main() {
 }
 
 func generateDataAndSave(path string) {
-	arr := gen.DefaultDataGenerator.Generator()
+	arr, gpa := gen.DefaultDataGenerator.Generator()
 	strArr := intArrMapToStringArr(arr)
-	save.WriteToCSV(strArr, path)
+	gpaArr := floatArrMapToStringArr(gpa)
+	save.WriteToCSV(append(
+		[][]string{
+			gpaArr,
+		}, strArr...), path)
 }
 
 func intArrMapToStringArr(arr [][]int) [][]string {
@@ -35,6 +40,13 @@ func intArrMapToStringArr(arr [][]int) [][]string {
 		for j := 0; j < len(arr[0]); j++ {
 			brr[i][j] = strconv.Itoa(arr[i][j])
 		}
+	}
+	return brr
+}
+func floatArrMapToStringArr(arr []float64) []string {
+	brr := make([]string, len(arr))
+	for i := 0; i < len(arr); i++ {
+		brr[i] = fmt.Sprintf("%.3f", arr[i])
 	}
 	return brr
 }

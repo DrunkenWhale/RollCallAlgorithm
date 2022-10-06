@@ -3,6 +3,17 @@ package org.rollcall.core
 import org.rollcall.input.Input
 import org.rollcall.output.Output
 
+fun indexToMultiShot(list:List<Int>,len:Int): MutableList<Int> {
+    val res = mutableListOf<Int>()
+    for (i in 0..len){
+        if (i in list){
+            res.add(1)
+        }else{
+            res.add(0)
+        }
+    }
+    return res
+}
 
 fun extractSample(input: Input, output: Output) {
     val (data, credit) = input.read()
@@ -20,9 +31,9 @@ fun extractSample(input: Input, output: Output) {
             it.first
         }
 
-    rollList.add(currentList as MutableList<Int>)
 
     for (lesson in data){
+        rollList.add(indexToMultiShot(currentList,credit.size))
         val captureList=(1..credit.size).toList().union(currentList)
         val restNumber=10-captureList.size
 
@@ -38,7 +49,7 @@ fun extractSample(input: Input, output: Output) {
                 it.first
             }
         currentList = (captureList+restRollList).toList()
-        rollList.add(currentList as MutableList<Int>)
+
     }
 
 

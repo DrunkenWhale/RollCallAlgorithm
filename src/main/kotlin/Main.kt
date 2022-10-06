@@ -1,8 +1,12 @@
+import org.rollcall.core.temp
+import org.rollcall.input.CsvInput
+import org.rollcall.output.ConsoleOutput
+import java.nio.file.Files
+import java.nio.file.Path
+
 fun main(args: Array<String>) {
-    println("Hello World!")
-
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
-
+    val pathString = "data"
+    Files.list(Path.of(pathString)).forEach { path ->
+        temp(CsvInput(path), ConsoleOutput())
+    }
 }

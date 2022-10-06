@@ -7,9 +7,9 @@ import org.rollcall.output.Output
 // 下面那个函数也是
 
 fun temp(input: Input, output: Output) {
-    val (data, credit) = input.read()
+    val (data, gpa) = input.read()
 
-
+    //TODO (implement your algorithm)
 
     output.write(data, 1.0)
 }

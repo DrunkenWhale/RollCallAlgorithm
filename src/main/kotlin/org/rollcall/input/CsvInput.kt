@@ -5,11 +5,11 @@ import java.nio.file.Path
 
 
 class CsvInput(
-    val path: String = "data"
+    val path: Path
 ) : Input {
 
     override fun read(): Pair<List<Lesson>, List<Double>> {
-        val lines = Files.readAllLines(Path.of(path))
+        val lines = Files.readAllLines(path)
 
         val gpaList = lines[0]
             .split(",")

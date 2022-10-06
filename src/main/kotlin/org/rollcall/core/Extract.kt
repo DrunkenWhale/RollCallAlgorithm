@@ -3,41 +3,39 @@ package org.rollcall.core
 import org.rollcall.input.Input
 import org.rollcall.output.Output
 
-fun indexesToMultiShot(list:List<Int>,len:Int): MutableList<Int> {
+fun indexesToMultiShot(list: List<Int>, len: Int): MutableList<Int> {
     val res = mutableListOf<Int>()
-    for (i in 0 until len){
-        if (i in list){
+    for (i in 0 until len) {
+        if (i in list) {
             res.add(1)
-        }else{
+        } else {
             res.add(0)
         }
     }
     return res
 }
 
-fun extractSample(input: Input, output: Output, rollCallNumber:Int) {
+fun extractSample(input: Input, output: Output, rollCallNumber: Int) {
     val (data, credit) = input.read()
 
-    val rollList= mutableListOf<MutableList<Int>>()
+    val rollList = mutableListOf<MutableList<Int>>()
 
-    var currentList = (1..credit.size)
+    var currentList = (0..credit.size)
         .toList()
         .zip(credit)
-        .sortedBy {
-            it.second
-        }
+        .sortedBy { it.second }
         .subList(0, rollCallNumber)
         .map {
             it.first
         }
 
 
-    for (lesson in data){
-        rollList.add(indexesToMultiShot(currentList,credit.size))
-        val captureList=(1..credit.size).intersect(currentList.toSet()).toList()
-        val restNumber=rollCallNumber-captureList.size
+    for (lesson in data) {
+        rollList.add(indexesToMultiShot(currentList, credit.size))
+        val captureList = (1..credit.size).intersect(currentList.toSet()).toList()
+        val restNumber = rollCallNumber - captureList.size
 
-        val restRollList =  (1..credit.size)
+        val restRollList = (1..credit.size)
             .toList()
             .subtract(currentList.toSet())
             .zip(credit)
@@ -48,10 +46,9 @@ fun extractSample(input: Input, output: Output, rollCallNumber:Int) {
             .map {
                 it.first
             }
-        currentList = (captureList+restRollList).toList()
+        currentList = (captureList + restRollList).toList()
 
     }
-
 
 
     //TODO (implement your algorithm)

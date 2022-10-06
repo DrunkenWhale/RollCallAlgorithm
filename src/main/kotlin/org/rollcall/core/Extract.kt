@@ -4,7 +4,7 @@ import org.rollcall.input.Input
 import org.rollcall.output.Output
 
 
-fun extractSample(input: Input, output: Output) {
+fun extractSamples(input: Input, output: Output) {
     val (data, credit) = input.read()
 
 

@@ -1,7 +1,7 @@
 package org.rollcall.output
 
-private typealias Label = Int
-private typealias Lesson = List<Label>
+internal typealias Label = Int
+internal typealias Lesson = List<Label>
 
 interface Output {
     /**

@@ -34,7 +34,7 @@ fun extractSample(input: Input, output: Output) {
 
     for (lesson in data){
         rollList.add(indexToMultiShot(currentList,credit.size))
-        val captureList=(1..credit.size).toList().union(currentList)
+        val captureList=(1..credit.size).intersect(currentList.toSet()).toList()
         val restNumber=10-captureList.size
 
         val restRollList =  (1..credit.size)

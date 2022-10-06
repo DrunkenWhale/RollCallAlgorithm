@@ -58,6 +58,7 @@ var DefaultDataGenerator = &DataGenerator{
 }
 
 func _GPA(upperBound float64) float64 {
+	// 生成 0~上限 的随机绩点
 	return rand.Float64() * upperBound
 }
 

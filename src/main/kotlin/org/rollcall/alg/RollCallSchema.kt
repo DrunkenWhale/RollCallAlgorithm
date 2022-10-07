@@ -21,3 +21,22 @@ internal val onlyRollCallFrequentlyAbsentStudents: RollCallSchema = { data, gpa,
 
     rollCallSchema
 }
+
+internal val rollCallStudentsPartlyBasedOnGpa: RollCallSchema = { data, gpa, rollCallNumber ->
+    // rollCallNumber 2/3由绩点后50%学生中取 1/3由绩点前50%学生中取
+    val orderList = gpa.indices
+        .toList()
+        .zip(gpa)
+        .sortedBy { it.second }
+        .map { it.first }
+
+    val bottomList=orderList.subList(0,gpa.size/2)
+    val topList=orderList.subList(gpa.size/2,gpa.size)
+
+    val currentList = bottomList.shuffled().subList(0,rollCallNumber*2/3)+topList.shuffled().subList(0,rollCallNumber/3)
+
+    val rollCallSchema = data.map { _ ->
+        gpa.indices.map { if (it in currentList) 1 else 0 }
+    }
+    rollCallSchema
+}

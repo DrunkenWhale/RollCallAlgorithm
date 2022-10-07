@@ -6,12 +6,12 @@
 
 实现请见 `kotlin`: __org.alg.RollCallSchema__
 
-| 算法 | 正确率        |
-|----|------------|
-| onlyRollCallFrequentlyAbsentStudents | 0.81 ± 0.1 | 
-|    |            | 
-|    |            | 
-|    |            | 
+| 算法                                   | 正确率         |
+|--------------------------------------|-------------|
+| onlyRollCallFrequentlyAbsentStudents | 0.81 ± 0.01 | 
+| rollCallStudentsPartlyBasedOnGpa     | 0.12 ± 0.02 | 
+|                                      |             | 
+|                                      |             | 
 
 ## 环境搭建
 

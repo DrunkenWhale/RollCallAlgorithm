@@ -11,7 +11,6 @@
 | onlyRollCallFrequentlyAbsentStudents | 0.80 ± 0.03 | 
 | rollCallStudentsPartlyBasedOnGpa     | 0.12 ± 0.02 | 
 | knn                                  | 0.81 ± 0.01 | 
-|                                      |             | 
 
 ## 环境搭建
 

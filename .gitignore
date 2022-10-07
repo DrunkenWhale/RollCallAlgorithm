@@ -1,3 +1,8 @@
+# two exe
+# 发release还要刷TimeLine
+# 我宁愿直接把二进制文件扔到仓库里
+!/executable/*
+
 # Compiled source #
 ###################
 *.com
@@ -64,5 +69,4 @@ atlassian-ide-plugin.xml
 
 # NetBeans specific files/directories
 .nbattrs
-
 

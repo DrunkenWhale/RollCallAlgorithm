@@ -5,6 +5,7 @@ import org.rollcall.output.Lesson
 typealias RollCallSchema = (List<Lesson>, List<Double>, Int) -> List<Lesson>
 
 internal val onlyRollCallFrequentlyAbsentStudents: RollCallSchema = { data, gpa, rollCallNumber ->
+
     val orderList = (0..gpa.size)
         .toList()
         .zip(gpa)
@@ -17,5 +18,6 @@ internal val onlyRollCallFrequentlyAbsentStudents: RollCallSchema = { data, gpa,
     val rollCallSchema = data.map { _ ->
         gpa.indices.map { if (it in currentList) 1 else 0 }
     }
+
     rollCallSchema
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"gen/gen"
 	"gen/save"
@@ -8,11 +9,13 @@ import (
 	"strconv"
 )
 
-var dir = "../../../data"
+var dirFlag = flag.String("d", "data", "output directory")
 
 func main() {
+	flag.Parse()
+	var dir = *dirFlag
 	if _, err := os.ReadDir(dir); err != nil {
-		// dir unexist
+		// dir doesn't exist
 		err = os.Mkdir(dir, 0666)
 		if err != nil {
 			panic(err)

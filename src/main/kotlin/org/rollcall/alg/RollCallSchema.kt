@@ -2,8 +2,9 @@ package org.rollcall.alg
 
 import org.rollcall.output.Lesson
 
+typealias RollCallSchema = (List<Lesson>, List<Double>, Int) -> List<Lesson>
 
-internal val rollCallSchema: (List<Lesson>, List<Double>, Int) -> List<Lesson> = { data, gpa, rollCallNumber ->
+internal val onlyRollCallFrequentlyAbsenceStudents: RollCallSchema = { data, gpa, rollCallNumber ->
     val orderList = (0..gpa.size)
         .toList()
         .zip(gpa)

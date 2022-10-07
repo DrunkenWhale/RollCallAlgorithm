@@ -9,8 +9,6 @@ import java.nio.file.StandardOpenOption
 
 private const val resultStorageDir = "res"
 
-@kotlinx.serialization.Serializable
-data class Res(val e: Double, val data: List<List<Lesson>>)
 
 class JsonOutput(
     val outputFileName: String = "result.json"
@@ -41,4 +39,8 @@ class JsonOutput(
             filePath, Json.encodeToString(Res(e, data)).toByteArray(Charsets.UTF_8), StandardOpenOption.CREATE
         )
     }
+
+    @kotlinx.serialization.Serializable
+    data class Res(val e: Double, val data: List<List<Lesson>>)
+
 }

@@ -1,4 +1,5 @@
 import org.rollcall.alg.calculateE
+import org.rollcall.alg.knn
 import org.rollcall.alg.onlyRollCallFrequentlyAbsentStudents
 import org.rollcall.alg.rollCallStudentsPartlyBasedOnGpa
 import org.rollcall.core.extractSample
@@ -17,7 +18,7 @@ fun main(args: Array<String>) {
         DsvInput(path)
     }.toList()!!
 
-    dsvInputList.forEach { extractSample(rollCallStudentsPartlyBasedOnGpa, it, output, rollCallNumber) }
+    dsvInputList.forEach { extractSample(knn, it, output, rollCallNumber) }
 
     val rollCallScheme = output.read()
 

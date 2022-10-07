@@ -1,6 +1,7 @@
 import org.rollcall.core.extractSample
 import org.rollcall.input.DsvInput
 import org.rollcall.output.ConsoleOutput
+import org.rollcall.output.JsonOutput
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -9,7 +10,7 @@ const val rollCallNumber = 7
 fun main(args: Array<String>) {
 
     val pathString = "data"
-    val output = ConsoleOutput()
+    val output = JsonOutput()
     val dsvInputList = Files.list(Path.of(pathString)).map { path ->
         DsvInput(path)
     }.toList()!!

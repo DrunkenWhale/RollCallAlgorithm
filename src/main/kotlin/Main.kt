@@ -1,6 +1,5 @@
 import org.rollcall.core.extractSample
 import org.rollcall.input.DsvInput
-import org.rollcall.output.ConsoleOutput
 import org.rollcall.output.JsonOutput
 import java.nio.file.Files
 import java.nio.file.Path

@@ -2,7 +2,6 @@ package org.rollcall.core
 
 import org.rollcall.input.Input
 import org.rollcall.output.Output
-import kotlin.random.Random
 
 
 fun extractSample(input: Input, output: Output, rollCallNumber: Int) {

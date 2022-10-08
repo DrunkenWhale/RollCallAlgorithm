@@ -35,8 +35,9 @@
 > 其中:
 >
 > __gen.exe__ => 数据生成器  
+> ![](media/gen.exe.gif)
 > __rollcall.exe__ => 算法实现
->
+> ![](media/rollcall.exe.gif)
 > __gen.exe__ 需要先执行，请注意顺序  
 > __gen.exe__ 通过`go build` 命令生成  
 > __rollcall.exe__ 通过`kotlin-native`编译器生成，对应代码在 __src/main/kotlin-native/__
@@ -73,7 +74,7 @@ __要求能够最小化向后端发送的请求次数，最大化抓出缺勤同
 
 即求解 *E* 的最大值
 
-当仅请求一次时, 若为有效点名
+当仅请求一次时, 若为有效点名i
 
 $$ E = 1 $$
 

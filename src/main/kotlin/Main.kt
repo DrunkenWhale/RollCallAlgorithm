@@ -11,7 +11,7 @@ import java.nio.file.Path
 
 fun main(args: Array<String>) {
 
-    val rollCallNumber = 24
+    val rollCallNumber = 30
     val pathString = "data"
     val output = ConsoleOutput()
     val dsvInputList = Files.list(Path.of(pathString)).map { path ->

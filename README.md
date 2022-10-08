@@ -34,9 +34,10 @@
 > ps: 如果下列操作难以完成，请使用仓库中 __/executable__ 文件夹下的两个可执行文件，分别对应数据生成器和算法实现。
 > 其中:
 >
-> __gen.exe__ => 数据生成器  
+> __gen.exe__  =>  数据生成器  
 > ![](media/gen.exe.gif)
-> __rollcall.exe__ => 算法实现
+> 
+> __rollcall.exe__  =>  算法实现
 > ![](media/rollcall.exe.gif)
 > __gen.exe__ 需要先执行，请注意顺序  
 > __gen.exe__ 通过`go build` 命令生成  

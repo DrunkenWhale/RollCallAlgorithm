@@ -15,12 +15,13 @@ fun main() {
         Pair("rollCallStudentsPartlyBasedOnGpa", rollCallStudentsPartlyBasedOnGpa),
         Pair("knn", knn)
     )
-
-    rollCallFunction.forEach { (fName, f) ->
+    repeat((1..10).count()) {
         reGenerateDataSet()
-        walk(f, ConsoleOutput())
-        walk(f, JsonOutput("$fName.json"))
-        walk(f, TextOutput(fName))
+        rollCallFunction.forEach { (fName, f) ->
+            walk(f, ConsoleOutput())
+            walk(f, JsonOutput("$fName.json"))
+            walk(f, TextOutput(fName))
+        }
     }
 
 }

@@ -12,6 +12,10 @@
 | rollCallStudentsPartlyBasedOnGpa     | 0.12 ± 0.02 | 
 | knn                                  | 0.81 ± 0.01 | 
 
+图像
+
+![res.jpg](draw/res.jpg)
+
 ## 环境搭建
 
 在开始之前，请确保你的电脑上已经安装了
@@ -36,7 +40,7 @@
 >
 > __gen.exe__  =>  数据生成器  
 > ![](media/gen.exe.gif)
-> 
+>
 > __rollcall.exe__  =>  算法实现
 > ![](media/rollcall.exe.gif)
 > __gen.exe__ 需要先执行，请注意顺序  

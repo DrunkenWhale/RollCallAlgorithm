@@ -6,7 +6,7 @@ plugins {
     application
 }
 
-group = "org.example"
+group = "org.rollcall"
 version = "1.0-SNAPSHOT"
 
 repositories {
